@@ -29,8 +29,11 @@ class TranscodingVC: UIViewController {
         custmTableView.backgroundColor = .black
     }
     
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> 9815997 (Converted to MVC architecture)
     func getURLData(){
         print("function get URL")
         
@@ -39,6 +42,7 @@ class TranscodingVC: UIViewController {
         let url : String = "https://gist.githubusercontent.com/dbackeus/484315/raw/dfeb530f9619bb74af5d537280a0b3b305410d01/videos.json"
         
         sharedInstance.fetchData(from: url){ [weak self] data in
+<<<<<<< HEAD
             self?.newData = data
             self?.custmTableView.reloadData()
             
@@ -49,6 +53,23 @@ class TranscodingVC: UIViewController {
             self?.titleLabel.text = title
             self?.id.text = "(\(id))"
             self?.duration.text = String(duration)
+=======
+            
+            DispatchQueue.main.async {
+                self?.newData = data
+                
+                self?.custmTableView.reloadData()
+                
+                let id = self?.newData[0].id ?? ""
+                let duration = self?.newData[0].duration ?? 0.0
+                let title = self?.newData[0].title ?? ""
+                
+                self?.titleLabel.text = title
+                self?.id.text = "(\(id))"
+                self?.duration.text = String(duration)
+            }
+            
+>>>>>>> 9815997 (Converted to MVC architecture)
         }
     
     }

@@ -11,7 +11,11 @@ protocol APIManagerProtocol {
     func fetchData<T: Decodable>( from url:String, closure: @escaping ([T]) -> Void)
 }
 
+<<<<<<< HEAD
 class APIManager: @unchecked Sendable, APIManagerProtocol {
+=======
+class APIManager: APIManagerProtocol {
+>>>>>>> 9815997 (Converted to MVC architecture)
     
     static let sharedInstance = APIManager()
     
@@ -28,10 +32,14 @@ class APIManager: @unchecked Sendable, APIManagerProtocol {
             do{
                 let receivedData = try JSONDecoder().decode([T].self, from:data)
                 
+<<<<<<< HEAD
                 DispatchQueue.main.async{
                     closure(receivedData)
                 }
 //                closure(receivedData)
+=======
+                closure(receivedData)
+>>>>>>> 9815997 (Converted to MVC architecture)
                 print("Received Data successfully!!")
                 
             } catch {
